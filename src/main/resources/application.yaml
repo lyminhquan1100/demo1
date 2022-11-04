@@ -1,0 +1,53 @@
+redis:
+  host: localhost
+  port: 6379
+  max-total: 10
+  max-idle: 10
+  min-idle: 2
+
+demo1:
+  banks:
+    - bankCode: VNPAY
+      privateKey: ghffffffffff
+      ips:
+    - bankCode: BIDV
+      privateKey: jjjjjjjj
+      ips:
+
+logging:
+  pattern:
+    #    console: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%X{token}] [%X{ipAddress}] %c{1} - %msg%n"
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight(%-5level) : [%X{token}] : %-10logger{5} : %msg%n"
+    file: "%d{dd-MM-yyyy HH:mm:ss.SSS} : %-5level [%X{token}] : %-10logger{5} : %msg%n"
+  #    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight(%-5level) %logger.%M - %msg%n"
+  #    file: "%d %-5level %logger : %msg%n"
+  #    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%X{user}] %-5level %logger.%M - %msg%n"
+  #    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: INFO
+    guru.springframework.controllers: INFO
+    org.hibernate: INFO
+  file:
+    name: logs/dev_app.log
+  logback:
+    rolling policy:
+      max-file-size: 20KB
+
+#spring:
+#  cache:
+#    type: redis
+#  redis:
+#    host: localhost
+#    port: 6379
+#    database: 1
+#    jedis:
+#      pool:
+#        max-idle: 8
+#        max-active: 8
+#        min-idle: 2
+
+
+
+
+
+
