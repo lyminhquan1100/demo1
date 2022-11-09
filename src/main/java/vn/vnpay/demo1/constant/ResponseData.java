@@ -1,9 +1,7 @@
-package vn.vnpay.demo1.base;
+package vn.vnpay.demo1.constant;
 
 import lombok.Data;
 import vn.vnpay.demo1.config.Message;
-
-import java.util.UUID;
 
 
 @Data

@@ -12,10 +12,12 @@ public class Message {
     public static final String DATA_NOT_CORRECT = "Data not correct";
     public static final String CODE_IS_VALID = "01";
     public static final String CODE_BAD_REQUEST = "02";
-    public static final String BANK_CODE = "bankCode";
+    public static final String BANK_CODE = "bank";
     public static final String DATA = "Data";
     public static final String TOKEN_KEY = "TokenKey";
-    public static final String TOKEN_KEY_ALREADY_EXIST = "Token Key already exist";
+    public static final String PRIVATE_KEY_NOT_EXIST = "Private key not exist";
     public static final String MESSAGE = "Message";
+
+    public static final String DATA_SET_ERROR = "Data set error";
 
 }
