@@ -1,9 +1,27 @@
+#spring:
+#  redis:
+#    sentinel:
+#      nodes: 10.22.22.20:26379,10.22.22.21:26379,10.22.22.22:26379
+#      master: redismaster
+#    jedis:
+#      pool:
+#        min-idle: 3
+#        max-active: 8
+#        max-idle: 8
+#    timeout: 5000
+#    password: vnpayredis@123
+
 redis:
-  host: 10.22.22.20
-  port: 6379
-  max-total: 10
-  max-idle: 10
-  min-idle: 2
+  redisSentinel:
+    nodes: 10.22.22.20:26379,10.22.22.21:26379,10.22.22.22:26379
+    master: redismaster
+    password: vnpayredis@123
+
+  poolConfig:
+    min-idle: 1
+    max-total: 16
+    max-idle: 8
+    timeout: 30
 
 demo1:
   banks:
@@ -16,13 +34,8 @@ demo1:
 
 logging:
   pattern:
-    #    console: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%X{token}] [%X{ipAddress}] %c{1} - %msg%n"
     console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight(%-5level) : [%X{token}] : %-30logger{5} : %msg%n"
     file: "%d{dd-MM-yyyy HH:mm:ss.SSS} : %-5level [%X{token}] : %-10logger{5} : %msg%n"
-  #    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight(%-5level) %logger.%M - %msg%n"
-  #    file: "%d %-5level %logger : %msg%n"
-  #    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%X{user}] %-5level %logger.%M - %msg%n"
-  #    file: "%d %-5level [%thread] %logger : %msg%n"
   level:
     org.springframework.web: INFO
     guru.springframework.controllers: INFO
@@ -33,20 +46,39 @@ logging:
     rolling policy:
       max-file-size: 20KB
 
-#spring:
-#  cache:
-#    type: redis
-#  redis:
-#    host: localhost
-#    port: 6379
-#    database: 1
-#    jedis:
-#      pool:
-#        max-idle: 8
-#        max-active: 8
-#        min-idle: 2
-#    password: vnpayredis@123
+  #spring:
+  #  cache:
+  #    type: redis
+  #  redis:
+  #    cluster:
+  #      nodes :
+  #          - 10.22.22.21:6379
+  #          - 10.22.22.22:6379
+  #          - 10.22.22.20:6379
+  #      max-redirects: 3
+  #    database: 1
+  #    jedis:
+  #      pool:
+  #        max-idle: 8
+  #        max-active: 8
+  #        min-idle: 2
+  #    password: vnpayredis@123
 
+  #  spring.redis.sentinel.master=mymaster
+  #  spring.redis.sentinel.nodes=192.168.56.50:26379,192.168.56.50:26380,192.168.56.50:26381
+  #  spring.application.name=spring-session-demo
+
+  #redis:
+  #  host1: 10.22.22.20
+  #  host2: 10.22.22.21
+  #  host3: 10.22.22.22
+  #  port: 26379
+  #  max-total: 10
+  #  max-idle: 10
+  #  min-idle: 2
+  #  timeout: 5000
+  #  master: redismaster
+  #  password: vnpayredis@123
 
 
 

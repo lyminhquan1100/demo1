@@ -5,7 +5,6 @@ public class Message {
     private Message() {
         throw new IllegalStateException("Utility class");
     }
-
     public static final String CODE_SUCCESS = "00";
     public static final String SUCCESS = "SUCCESS";
     public static final String BANK_NOT_FOUND = "Bank not found";
